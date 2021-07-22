@@ -1,2 +1,49 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>User info</h2>
+      <%= attachment_image_tag @user, :prfile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
+      <table class="table">
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= @user.introduction %></th>
+        </tr>
+      </table>
+      <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
+      <span class="fas fa-user-cog"></span>
+      <% end %>
+      <h2>New book</h2>
+      <%= form_with model:@book, local:true do |f| %>
+      <p>Title</p>
+      <%= f.text_field :title %>
+      <p>Opinion</p>
+      <%= f.text_area :body %>
+      <%= f.submit "Create Book", class:"btn btn-success" %>
+      <% end %>
+
+    </div>
+    <div class="col-8 offset-1">
+      <h2>Book detail</h2>
+      <table class="table">
+          <tr>
+            <th>
+              <%= link_to user_path(@booki.user) do %>
+              <%= attachment_image_tag @booki.user, :prfile_image, format: 'jpeg', fallback: "no_image.jpeg", size: "40x40" %><br>
+              <%= link_to @user.name, user_path(@booki.user) %>
+              <% end %>
+            </th>
+            <th><%= link_to @booki.title, book_path(@booki) %></th>
+            <th><%= @booki.body %></th>
+            <% if @booki.user == current_user %>
+            <th><%= link_to "Edit", edit_book_path(@booki), class:"btn btn-sm btn-success" %></th>
+            <th><%= link_to "Destroy", destroy_book_path(@booki), method: :delete, "data-confirm" => "本当に削除しますか？" , class:"btn btn-sm btn-danger" %></th>
+            <% end %>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>
