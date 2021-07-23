@@ -13,12 +13,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render :edit
+    else
+      redirect_to users_path
+    end
   end
 
   def new
   end
-  
-  
+
+
   def update
     @user = User.find(params[:id])
     if  @user.update(user_params)
@@ -28,12 +33,12 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :prfile_image, :introduction)
   end
-  
-  
+
+
 end

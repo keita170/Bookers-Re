@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="error_explanation">
+  <div id="error_explanation">
   <% if @user.errors.any? %>
   <%= @user.errors.count %>error prohibited this obj from being saved:<br>
   <% @user.errors.full_messages.each do |message| %>
