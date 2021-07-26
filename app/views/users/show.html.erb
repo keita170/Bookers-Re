@@ -18,6 +18,7 @@
               <%= attachment_image_tag @user, :prfile_image, format: 'jpeg', fallback: "no_image.jpeg", size: "40x40" %>
               <% end %>
             </th>
+            <th></th>
             <th><%= link_to book.title, book_path(book) %></th>
             <th><%= book.body %></th>
           </tr>
