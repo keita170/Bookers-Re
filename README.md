@@ -1,24 +1,14 @@
-# README
+# Bookersの復習で作ったアプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+bookers2の復習で作ったアプリが入ってます。<br>
+実装した機能:
 
-Things you may want to cover:
+* 投稿機能
 
-* Ruby version
+* 編集機能
 
-* System dependencies
+* 一覧表示機能
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* deviseを用いてのログイン機能
 
 * ...
